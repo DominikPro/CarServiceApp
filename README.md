@@ -1,3 +1,20 @@
+## Statusy
+
+Status samochodó wyświeltany na liście aut
+-waitingForDiagnosis
+-verification
+-acceptance
+-repaired
+-readyForPicup
+-pickedUp
+-customerResignation
+
+-----//-----//-----//-----//-----//-----//-----//-----//-----//-----//
+
+## Styles in components
+
+Each component has its own folder and a file with its styles in it.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
