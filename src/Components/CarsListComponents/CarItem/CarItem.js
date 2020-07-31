@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { theme } from "../../../utils/theme";
+import { theme } from "utils/theme";
 import { NavLink, Link } from "react-router-dom";
 import styled from "styled-components";
-import Button from "../../Button/Button";
-import CarStatusControl from "../CarStatusControl/CarStatusControl";
+import Button from "Components/Button/Button";
+import CarStatusControl from "Components/CarsListComponents/CarStatusControl/CarStatusControl";
 // import H3 from "../../H3/H3";
+import Container from "react-bootstrap/Container";
+import Card from "react-bootstrap/Card";
 
 const WrapperCarItem = styled.div`
   display: flex;
@@ -63,47 +65,53 @@ const CarItem = (props) => {
         <div>
           {clients.map((client) => (
             <>
-              <WrapperCarItem>
-                <ClientAndCarData>
-                  <p>Marka:</p>
-                  <InformationLabel>{client[0].carBrand}</InformationLabel>
-                  <p>Model:</p>
-                  <InformationLabel>{client[0].carModel}</InformationLabel>
-                  <p>Nr Rejstracyjny: </p>
-                  <InformationLabel>
-                    {client[0].carRegistrationNumer}
-                  </InformationLabel>
-                  <p>Nr VIN:</p>
-                  <InformationLabel>{client[0].carVinNumber}</InformationLabel>
-                  <p>Imię:</p>
-                  <InformationLabel> {client[0].clientName}</InformationLabel>
-                  <p>Nazwisko:</p>
-                  <InformationLabel>{client[0].clientSurname}</InformationLabel>
-                  <p>Tel:</p>
-                  <InformationLabel>
-                    {client[0].clientPhoneNumber}
-                  </InformationLabel>
-                </ClientAndCarData>
-                <RepairInformation>
-                  <ButtonItem>Odebrany</ButtonItem>
-                  <p>Data:</p>
-                  <InformationLabel>[0][1][0]</InformationLabel>
-                  <p>Godzina:</p>
-                  <InformationLabel>11:00</InformationLabel>
-                  <p>Mechanik:</p>
-                  <InformationLabel>Tomasz Webasto</InformationLabel>
-                  {CarStatusControl(
-                    clients[number][1][0].status.toString(),
-                    number++
-                  )}
+              <Container fluid>
+                <Card border="primary">
+                  <ClientAndCarData>
+                    <p>Marka:</p>
+                    <InformationLabel>{client[0].carBrand}</InformationLabel>
+                    <p>Model:</p>
+                    <InformationLabel>{client[0].carModel}</InformationLabel>
+                    <p>Nr Rejstracyjny: </p>
+                    <InformationLabel>
+                      {client[0].carRegistrationNumer}
+                    </InformationLabel>
+                    <p>Nr VIN:</p>
+                    <InformationLabel>
+                      {client[0].carVinNumber}
+                    </InformationLabel>
+                    <p>Imię:</p>
+                    <InformationLabel> {client[0].clientName}</InformationLabel>
+                    <p>Nazwisko:</p>
+                    <InformationLabel>
+                      {client[0].clientSurname}
+                    </InformationLabel>
+                    <p>Tel:</p>
+                    <InformationLabel>
+                      {client[0].clientPhoneNumber}
+                    </InformationLabel>
+                  </ClientAndCarData>
+                  <RepairInformation>
+                    <ButtonItem>Odebrany</ButtonItem>
+                    <p>Data:</p>
+                    <InformationLabel>[0][1][0]</InformationLabel>
+                    <p>Godzina:</p>
+                    <InformationLabel>11:00</InformationLabel>
+                    <p>Mechanik:</p>
+                    <InformationLabel>Tomasz Webasto</InformationLabel>
+                    {CarStatusControl(
+                      clients[number][1][0].status.toString(),
+                      number++
+                    )}
 
-                  <Link to="/CarVisitCard">
-                    <ButtonItem id={client[0].carVinNumber} onClick={showId}>
-                      Edytuj
-                    </ButtonItem>
-                  </Link>
-                </RepairInformation>
-              </WrapperCarItem>
+                    <Link to="/CarVisitCard">
+                      <ButtonItem id={client[0].carVinNumber} onClick={showId}>
+                        Edytuj
+                      </ButtonItem>
+                    </Link>
+                  </RepairInformation>
+                </Card>
+              </Container>
             </>
           ))}
         </div>

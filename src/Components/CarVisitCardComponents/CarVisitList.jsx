@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import Button from "../Button/Button";
+import Button from "Components/Button/Button";
 const ButtonStyle = styled(Button)`
   width: 90%;
 `;

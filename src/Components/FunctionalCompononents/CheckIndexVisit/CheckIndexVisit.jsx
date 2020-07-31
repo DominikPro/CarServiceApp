@@ -1,5 +1,5 @@
 import React from "react";
-import H3 from "../../H3/H3";
+import H3 from "Components/H3/H3";
 
 const CheckIndexVisit = (indexOfVisit, visits, typeInformation) => {
   const info = typeInformation;

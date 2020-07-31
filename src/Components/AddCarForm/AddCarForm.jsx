@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { theme } from "../../utils/theme";
+import { theme } from "utils/theme";
 // import Input from "../Input/Input";
 import Styled from "styled-components";
-import Button from "../Button/Button";
-import H3 from "../H3/H3";
+import Button from "Components/Button/Button";
+import H3 from "Components/H3/H3";
 import H3Important from "../H3Important/H3Important";
 
 const WrapperClientForm = Styled.div`

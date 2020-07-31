@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import { ThemeProvider } from "styled-components";
-import { theme } from "../../utils/theme";
-import NavLinks from "../../Components/NavBar/NavLinks";
-import CarDataAndVists from "../../Components/CarVisitCardComponents/CarDataAndVists";
-import CarVisitList from "../../Components/CarVisitCardComponents/CarVisitList";
-import FaultAndRepaiManagment from "../../Components/CarVisitCardComponents/FaultAndRepaiManagment";
+import { theme } from "utils/theme";
+import NavLinks from "Components-new/shered/nav-bar/NavLinks";
+import CarDataAndVists from "Components/CarVisitCardComponents/CarDataAndVists";
+import CarVisitList from "Components/CarVisitCardComponents/CarVisitList";
+import FaultAndRepaiManagment from "Components/CarVisitCardComponents/FaultAndRepaiManagment";
 
 const WrapperEditCarVisit = styled.div`
   display: flex;

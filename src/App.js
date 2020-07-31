@@ -5,15 +5,14 @@ import {
   Switch,
   Redirect,
 } from "react-router-dom";
-import NavLinks from "./Components/NavBar/NavLinks";
-import WorkerLogInForm from "./Components/WorkerLogInForm/WorkerLogInForm";
-import ClientLoginForm from "./Components/ClientLoginForm/ClientLoginForm";
-import CarsLists from "./pages/CarsLists/CarsList";
-import ClientPage from "./pages/ClientPage/ClientPage";
-import Layout from "./Layout/Layout";
-
-import AddCar from "./pages/AddCar/AddCar";
-import CarVisitCard from "./pages/CarVisitCard/CarVisitCard";
+import NavLinks from "Components-new/shered/nav-bar/NavLinks.jsx";
+import WorkerLogInForm from "Components/WorkerLogInForm/WorkerLogInForm";
+import ClientLoginForm from "Components/ClientLoginForm/ClientLoginForm";
+import CarsLists from "containers/cars-lists/CarsList";
+import ClientPage from "pages/ClientPage/ClientPage";
+import Layout from "Layout/Layout";
+import AddCar from "pages/AddCar/AddCar";
+import CarVisitCard from "pages/CarVisitCard/CarVisitCard";
 
 function App() {
   let info = "test";

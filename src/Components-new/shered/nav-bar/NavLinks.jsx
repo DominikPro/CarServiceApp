@@ -1,8 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import ServiceLogo from "../ServiceLogo/ServiceLogo";
+import ServiceLogo from "Components/ServiceLogo/ServiceLogo";
 import styled from "styled-components";
-import { theme } from "../../utils/theme";
+import { theme } from "utils/theme";
+import Container from "react-bootstrap/Container";
 
 const WrapperNavLinksMenu = styled.div`
   display: flex;
@@ -40,7 +41,7 @@ const NavButton = styled.button`
 
 const NavLinks = (props) => {
   return (
-    <>
+    <Container fluid>
       <WrapperNavLinksMenu>
         <ServiceLogo />
         <Ul>
@@ -66,7 +67,7 @@ const NavLinks = (props) => {
           </Li>
         </Ul>
       </WrapperNavLinksMenu>
-    </>
+    </Container>
   );
 };
 

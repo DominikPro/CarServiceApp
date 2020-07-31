@@ -4,3 +4,12 @@
   },
   "include": ["src"]
 }
+// {
+//   "rootDir": "src",
+//   "compilerOptions": {
+//     "baseUrl": "./",
+//     "paths": {
+//       "~/*": ["./src/*"]
+//     }
+//   }
+// }

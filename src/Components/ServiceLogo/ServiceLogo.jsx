@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../img/logo.jpg";
+import logo from "img/logo.jpg";
 import styled from "styled-components";
 
 const ServiceLogoImage = styled.div`
@@ -7,7 +7,7 @@ const ServiceLogoImage = styled.div`
   flex-grow: 1;
 `;
 
-const ServiceLogo = props => {
+const ServiceLogo = (props) => {
   return (
     <ServiceLogoImage>
       <img src={logo} alt="Logo serwisu samochodowego" height="120px" />

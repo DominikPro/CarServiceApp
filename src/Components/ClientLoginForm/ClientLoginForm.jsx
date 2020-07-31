@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
-import Button from "../Button/Button";
-import Label from "../Label/Label";
-import Input from "../Input/Input";
-import { theme } from "../../utils/theme";
+import Button from "Components/Button/Button";
+import Label from "Components/Label/Label";
+import Input from "Components/Input/Input";
+import { theme } from "utils/theme";
 
 import ClientPage from "../../pages/ClientPage/ClientPage";
 

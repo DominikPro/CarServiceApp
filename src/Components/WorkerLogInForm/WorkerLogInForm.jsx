@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import Button from "../Button/Button";
-import { theme } from "../../utils/theme";
-import Label from "../Label/Label";
-import Input from "../Input/Input";
+import Button from "Components/Button/Button";
+import { theme } from "utils/theme";
+import Label from "Components/Label/Label";
+import Input from "Components/Input/Input";
 
 const WrapperWorkerLogInPage = styled.div`
   flex-direction: column;
@@ -20,7 +20,7 @@ const Form = styled.form`
   justify-content: center;
 `;
 // const WrapperWorkerLogInForm = styled.form``;
-const WorkerLogInForm = props => {
+const WorkerLogInForm = (props) => {
   return (
     <WrapperWorkerLogInPage>
       <H1>Panel Logowania Prcownika </H1>

@@ -1,7 +1,7 @@
 import React from "react";
 import { theme } from "../../utils/theme";
 import styled from "styled-components";
-import H3 from "../H3/H3";
+import H3 from "Components/H3/H3";
 import CheckIndexVisit from "../FunctionalCompononents/CheckIndexVisit/CheckIndexVisit";
 
 const FaultListWrapper = styled.div`
@@ -15,7 +15,7 @@ const FaultListWrapper = styled.div`
   align-content: stretch;
 `;
 
-const FaultList = props => {
+const FaultList = (props) => {
   const { indexOfVisit, visits } = props;
   return (
     <FaultListWrapper>

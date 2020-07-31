@@ -1,24 +1,18 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { theme } from "../../utils/theme";
-import Input from "../../Components/Input/Input";
-import Button from "../../Components/Button/Button";
-import H3 from "../../Components/H3/H3";
-import CarItem from "../../Components/CarsListComponents/CarItem/CarItem";
+import { theme } from "utils/theme";
+import Input from "Components/Input/Input";
+import Button from "Components/Button/Button";
+import H3 from "Components/H3/H3";
+import CarItem from "Components/CarsListComponents/CarItem/CarItem";
 
-const CarListWrapper = styled.div`
-  display: flex;
-  align-self: center;
-  align-items: flex-start;
-  width: 100vw;
-  height: 100px;
-`;
-const FindCar = styled.div`
-  display: flex;
-  align-self: center;
-  align-items: flex-start;
-  margin-bottom: 50px;
-`;
+import Container from "react-bootstrap/Container";
+import Card from "react-bootstrap/Card";
+import InputGroup from "react-bootstrap/InputGroup";
+import FormControl from "react-bootstrap/FormControl";
+
+const CarListWrapper = styled.div``;
+const FindCar = styled.div``;
 
 const CarsList = (props) => {
   const [ArrayNumberCount, setArrayNumberCount] = useState();
@@ -27,22 +21,16 @@ const CarsList = (props) => {
   const [mainCarlist, setMainCarList] = useState(props.carList);
   const [filteredCarList, setfilteredCarList] = useState();
 
-  // console.log(mainCarlist);
-
   const findCarOrCustomerInList = () => {
-    console.log("----działa funkcja znajdź");
     console.log(carAndcustomerList[1]);
     for (let i = 0; i < carAndcustomerList.length; i++) {
       if (
         carAndcustomerList[i][0].carVinNumber.search(serchedCarAndCustomer) > -1
       ) {
         setMainCarList([carAndcustomerList[i]]);
-        // console.log("=-=-=-=-=-=-=-=-=-=funkcja i petla dział");
-        // console.log(`SZUKANY WYNIK NA POZYCJI W TABLICY-------------> ${i}`);
         return;
       } else {
         setMainCarList(props.carList);
-        // console.log("nie znaleziono auta");
       }
     }
   };
@@ -53,7 +41,6 @@ const CarsList = (props) => {
     setSerchedCarAndCustomer(e.target.value.toUpperCase());
 
     if (serchedCarAndCustomer.length >= 4) {
-      // console.log("-----------------działa ifffffffff");
       findCarOrCustomerInList();
     } else if (serchedCarAndCustomer.length < 4) {
       setMainCarList(props.carList);
@@ -63,21 +50,24 @@ const CarsList = (props) => {
   };
 
   return (
-    <>
-      <H3>Lista samochodów w serwisie</H3>
-      <FindCar>
-        <Input onChange={findCarOrCustomer} placeholder="Wpisz numer VIN" />
-        <Button>SZUKAJ / DODAJ SAMOCHÓD</Button>
-      </FindCar>
+    <Container fluid>
+      <H3 md="auto">Lista samochodów w serwisie</H3>
+      <Card>
+        <InputGroup onChange={findCarOrCustomer} className="mb-3">
+          <FormControl placeholder="Numer Vin" aria-label="Numer Vin" />
+          <InputGroup.Append>
+            <Button variant="outline-secondary">SZUKAJ / DODAJ SAMOCHÓD</Button>
+          </InputGroup.Append>
+        </InputGroup>
+      </Card>
 
-      <CarListWrapper>
+      <Container fluid>
         <CarItem
           carList={mainCarlist}
-          // carList={props.carList}
           setSelectedCarFromList={props.setSelectedCarFromList}
         />
-      </CarListWrapper>
-    </>
+      </Container>
+    </Container>
   );
 };
 

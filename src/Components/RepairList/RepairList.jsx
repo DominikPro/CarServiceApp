@@ -1,8 +1,8 @@
 import React from "react";
-import { theme } from "../../utils/theme";
+import { theme } from "utils/theme";
 import styled from "styled-components";
-import H3 from "../H3/H3";
-import CheckIndexVisit from "../FunctionalCompononents/CheckIndexVisit/CheckIndexVisit";
+import H3 from "Components/H3/H3";
+import CheckIndexVisit from "Components/FunctionalCompononents/CheckIndexVisit/CheckIndexVisit";
 
 const RepairListWrapper = styled.div`
   flex-grow: 3;

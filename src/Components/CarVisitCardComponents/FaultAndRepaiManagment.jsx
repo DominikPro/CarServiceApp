@@ -1,5 +1,5 @@
 import React, { useState, memo } from "react";
-import AddAnotherRepair from "../AddCarForm/AddAnotherRepair";
+import AddAnotherRepair from "Components/AddCarForm/AddAnotherRepair";
 import { useMemo } from "react";
 
 const FaultAndRepaiManagment = () => {

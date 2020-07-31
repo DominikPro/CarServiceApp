@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { theme } from "../../utils/theme";
-import Button from "../Button/Button";
-import H3 from "../H3/H3";
+import { theme } from "utils/theme";
+import Button from "Components/Button/Button";
+import H3 from "Components/H3/H3";
 
 const CarAndCustomerDataWrapper = styled.div`
   display: flex;

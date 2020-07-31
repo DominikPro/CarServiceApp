@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { theme } from "../../utils/theme";
+import { theme } from "utils/theme";
 
 const Button = styled.button`
   color: ${({ colors }) => theme.colors.white};

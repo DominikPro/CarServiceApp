@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { theme } from "../../utils/theme";
-import Input from "../Input/Input";
-import Button from "../Button/Button";
-import ChceckBoxImportant from "../AddCarForm/ChceckBoxImportant";
-import H3 from "../H3/H3";
-import H3Important from "../H3Important/H3Important";
+import { theme } from "utils/theme";
+import Input from "Components/Input/Input";
+import Button from "Components/Button/Button";
+import ChceckBoxImportant from "Components/AddCarForm/ChceckBoxImportant";
+import H3 from "Components/H3/H3";
+import H3Important from "Components/H3Important/H3Important";
 
 const WrapperAddAnotherRepair = styled.div`
   display: flex;

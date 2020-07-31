@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { theme } from "../../utils/theme";
+import { theme } from "utils/theme";
 import styled from "styled-components";
-import H1 from "../../Components/H1/H1";
+import H1 from "Components/H1/H1";
 
-import ClientVisitList from "../../Components/ClientVisitList/ClientVisitList";
-import FaultList from "../../Components/FaultList/FaultList";
-import RepairList from "../../Components/RepairList/RepairList";
+import ClientVisitList from "Components/ClientVisitList/ClientVisitList";
+import FaultList from "Components/FaultList/FaultList";
+import RepairList from "Components/RepairList/RepairList";
 
 const WrapperClientPage = styled.div`
   width: 100vw;
@@ -23,7 +23,7 @@ const WrapperClientPage = styled.div`
   align-content: stretch; */
 `;
 
-const ClientPage = props => {
+const ClientPage = (props) => {
   const [visits, setVists] = useState([
     {
       id: 1,
@@ -31,7 +31,7 @@ const ClientPage = props => {
       fault:
         "id:1 zasniedziałem przewody hamulcowe, słaby stan akumulatora, silnik do wymiany",
       repairs:
-        "id:1    wymiana silnika, wymiana akumulatora, demontaż hamulców."
+        "id:1    wymiana silnika, wymiana akumulatora, demontaż hamulców.",
     },
     {
       id: 2,
@@ -39,23 +39,24 @@ const ClientPage = props => {
       fault:
         "id: 2 zasniedziałem przewody hamulcowe, słaby stan akumulatora, silnik do wymiany",
       repairs:
-        "  id: 2 wymiana silnika, wymiana akumulatora, demontaż hamulców."
+        "  id: 2 wymiana silnika, wymiana akumulatora, demontaż hamulców.",
     },
     {
       id: 3,
       visit: "wizyta 3",
       fault:
         "id: 3 zasniedziałem przewody hamulcowe, słaby stan akumulatora, zasniedziałem przewody hamulcowe, silnik do wymiany",
-      repairs: " id: 3 wymiana silnika, wymiana akumulatora, demontaż hamulców."
-    }
+      repairs:
+        " id: 3 wymiana silnika, wymiana akumulatora, demontaż hamulców.",
+    },
   ]);
   const [selectedVisit, setSelectedVisit] = useState();
 
-  const UserSelctedVisit = selectedVisit => {
+  const UserSelctedVisit = (selectedVisit) => {
     setSelectedVisit(parseInt(selectedVisit));
   };
 
-  const index = visits.findIndex(visit => visit.id === selectedVisit);
+  const index = visits.findIndex((visit) => visit.id === selectedVisit);
   return (
     <>
       <H1>Welcom on client page</H1>
