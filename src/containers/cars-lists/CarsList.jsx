@@ -1,25 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { theme } from "utils/theme";
-import Input from "Components/Input/Input";
+
 import Button from "Components/Button/Button";
 import H3 from "Components/H3/H3";
-import CarItem from "Components/CarsListComponents/CarItem/CarItem";
-
+import CarItem from "Components-new/car-item/CarItem";
+import Col from "react-bootstrap/Col";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
-import Card from "react-bootstrap/Card";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 
-const CarListWrapper = styled.div``;
-const FindCar = styled.div``;
+import filterCarInService from "/Controllers/carsList/filterCarInService";
+
+import axios from "axios";
+import "../../mock-api/routes/users";
+// import "../../mock-api/routes/customerData";
 
 const CarsList = (props) => {
-  const [ArrayNumberCount, setArrayNumberCount] = useState();
   const [carAndcustomerList, setcarAndcustomerList] = useState([]);
   const [serchedCarAndCustomer, setSerchedCarAndCustomer] = useState(0);
   const [mainCarlist, setMainCarList] = useState(props.carList);
-  const [filteredCarList, setfilteredCarList] = useState();
+  const [carsDataApi, setcarsDataApi] = useState([]);
 
   const findCarOrCustomerInList = () => {
     console.log(carAndcustomerList[1]);
@@ -46,27 +48,55 @@ const CarsList = (props) => {
       setMainCarList(props.carList);
     }
     console.log(serchedCarAndCustomer);
-    console.log();
   };
 
-  return (
-    <Container fluid>
-      <H3 md="auto">Lista samochodów w serwisie</H3>
-      <Card>
-        <InputGroup onChange={findCarOrCustomer} className="mb-3">
-          <FormControl placeholder="Numer Vin" aria-label="Numer Vin" />
-          <InputGroup.Append>
-            <Button variant="outline-secondary">SZUKAJ / DODAJ SAMOCHÓD</Button>
-          </InputGroup.Append>
-        </InputGroup>
-      </Card>
+  const fetchCarsData = async () => {
+    let carsData = await axios.get("/api/cars-data");
+    // let customerData = await axios.get("/api/customers-data");
+    console.log(carsData.data);
+    // console.log(customerDta.data);
+    setcarsDataApi(carsData.data);
+  };
 
-      <Container fluid>
+  useEffect(() => {
+    fetchCarsData();
+  }, []);
+
+  let carInservice = carsDataApi.filter(filterCarInService);
+  console.log(carInservice);
+  return (
+    <Container className="justify-content-center ">
+      <Row>
+        <Col className="justify-content-center my-1" xs={12} lg={12}>
+          <H3 className="text-center ">Lista samochodów w serwisie</H3>
+        </Col>
+      </Row>
+
+      <Row className="aligne-self-center">
+        <InputGroup
+          className="justify-content-center my-2"
+          onChange={findCarOrCustomer}
+        >
+          <Col xs={12} lg={4}>
+            <FormControl placeholder="Numer Vin" aria-label="Numer Vin" />
+          </Col>
+
+          <Col className="align-self-center" xs={8} lg={4}>
+            <InputGroup.Append>
+              <Button variant="outline-secondary">
+                SZUKAJ / DODAJ SAMOCHÓD
+              </Button>
+            </InputGroup.Append>
+          </Col>
+        </InputGroup>
+      </Row>
+      <Row>
         <CarItem
-          carList={mainCarlist}
+          // carList={mainCarlist}
+          carList={carInservice}
           setSelectedCarFromList={props.setSelectedCarFromList}
         />
-      </Container>
+      </Row>
     </Container>
   );
 };

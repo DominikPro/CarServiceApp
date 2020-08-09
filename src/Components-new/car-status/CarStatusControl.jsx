@@ -1,15 +1,14 @@
 import React from "react";
 import styled from "styled-components";
-import { theme } from "../../../utils/theme";
+import { theme } from "utils/theme";
 
 const StatusControlwaitingForDiagnosis = styled.div`
   background-color: ${({ colors }) => theme.colors.waitingForDiagnosis};
   display: flex;
   margin: 5px;
-  padding: 5px 10px;
   border-radius: 30px;
   height: 40px;
-  min-width: 270px;
+  min-width: 250px;
   align-items: center;
   justify-content: center;
 `;
@@ -51,19 +50,19 @@ const CarStatusControl = (props) => {
   if (props === "waitingForDiagnosis") {
     return (
       <StatusControlwaitingForDiagnosis>
-        <h3>Czeka na diagnostyke </h3>
+        <h5>Czeka na diagnostyke </h5>
       </StatusControlwaitingForDiagnosis>
     );
   } else if (props === "verification") {
     return (
       <StatusControlVerification>
-        <h3>Diagnoza samochochodu</h3>
+        <h5>Diagnoza samochochodu</h5>
       </StatusControlVerification>
     );
   } else if (props === "acceptance") {
     return (
       <StatusControlAcceptance>
-        <h3>Naprawa zakceptowana</h3>
+        <h5>Naprawa zakceptowana</h5>
       </StatusControlAcceptance>
     );
   } else if (props === "repaired") {
@@ -75,19 +74,19 @@ const CarStatusControl = (props) => {
   } else if (props === "readyForPicup") {
     return (
       <StatusControlReadyForPicup>
-        <h3>Gotowy do odbioru</h3>
+        <h5>Gotowy do odbioru</h5>
       </StatusControlReadyForPicup>
     );
   } else if (props === "pickedUp") {
     return (
       <CustomerpickedUp>
-        <h3>Samochód odebrany</h3>
+        <h5>Samochód odebrany</h5>
       </CustomerpickedUp>
     );
   } else if (props === "customerResignation") {
     return (
       <CustomerResignation>
-        <h3>Klient zrezygnował</h3>
+        <h5>Klient zrezygnował</h5>
       </CustomerResignation>
     );
   }

@@ -1,16 +1,11 @@
 import React, { useState } from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Redirect,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 import NavLinks from "Components-new/shered/nav-bar/NavLinks.jsx";
 import WorkerLogInForm from "Components/WorkerLogInForm/WorkerLogInForm";
 import ClientLoginForm from "Components/ClientLoginForm/ClientLoginForm";
 import CarsLists from "containers/cars-lists/CarsList";
 import ClientPage from "pages/ClientPage/ClientPage";
-import Layout from "Layout/Layout";
 import AddCar from "pages/AddCar/AddCar";
 import CarVisitCard from "pages/CarVisitCard/CarVisitCard";
 
@@ -383,7 +378,7 @@ function App() {
   };
 
   return (
-    <Layout>
+    <>
       <Router>
         <NavLinks />
         <Switch>
@@ -413,7 +408,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
-    </Layout>
+    </>
   );
 }
 

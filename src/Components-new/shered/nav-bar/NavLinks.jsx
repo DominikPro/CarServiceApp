@@ -1,72 +1,62 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import ServiceLogo from "Components/ServiceLogo/ServiceLogo";
+import Logo from "Components-new/logo/logo";
 import styled from "styled-components";
-import { theme } from "utils/theme";
+
 import Container from "react-bootstrap/Container";
+import Button from "react-bootstrap/Button";
 
-const WrapperNavLinksMenu = styled.div`
-  display: flex;
-  height: 100px;
-  width: 100vw;
-  justify-content: center;
-`;
+import Row from "react-bootstrap/Row";
 
-const Ul = styled.ul`
-  margin: 0;
-  padding: 0;
-  height: auto;
-  align-self: center;
-  flex-grow: 9;
-`;
-const Li = styled.li`
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+
+const li = styled.li`
   top: 10px;
   display: inline-block;
   text-decoration: none;
   align-self: baseline;
 `;
 
-const NavButton = styled.button`
-  color: ${({ colors }) => theme.colors.white};
-  margin: 5px;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 30px;
-  background-color: ${({ colors }) => theme.colors.primary};
-  :hover {
-    background-color: ${({ colors }) => theme.colors.primaryDark};
-    cursor: pointer;
-  }
-`;
-
 const NavLinks = (props) => {
   return (
-    <Container fluid>
-      <WrapperNavLinksMenu>
-        <ServiceLogo />
-        <Ul>
-          <Li>
+    <Container>
+      <Row xs={10} lg={10} className="justify-content-center text-center"></Row>
+      <Navbar bg="light" expand="md">
+        <NavLink to="/" exact>
+          <Navbar.Brand>
+            <Logo />
+          </Navbar.Brand>
+        </NavLink>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="mr-auto">
             <NavLink to="/" exact>
-              <NavButton>Home</NavButton>
+              <Button className="m-1" variant="primary">
+                Home
+              </Button>
             </NavLink>
-          </Li>
-          <Li>
+
             <NavLink to="/LoginPageWorker">
-              <NavButton>Zaloguj</NavButton>
+              <Button className="m-1" variant="primary">
+                Zaloguj
+              </Button>
             </NavLink>
-          </Li>
-          <Li>
+
             <NavLink to="/AddCar">
-              <NavButton>Dodaj samochód</NavButton>
+              <Button className="m-1" variant="primary">
+                Dodaj Samochód
+              </Button>
             </NavLink>
-          </Li>
-          <Li>
+
             <NavLink to="/CarsList">
-              <NavButton>Lista samochodów</NavButton>
+              <Button className="m-1" variant="primary">
+                Lista Samochodów
+              </Button>
             </NavLink>
-          </Li>
-        </Ul>
-      </WrapperNavLinksMenu>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
     </Container>
   );
 };
