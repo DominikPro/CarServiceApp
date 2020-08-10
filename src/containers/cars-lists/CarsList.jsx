@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useReducer } from "react";
 import styled from "styled-components";
 
 import Button from "Components/Button/Button";
@@ -11,10 +11,12 @@ import Container from "react-bootstrap/Container";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 
-import filterCarInService from "/Controllers/carsList/filterCarInService";
+// import filterCarInService from "/Controllers/carsList/filterCarInService";
+import filterCarInService from "../../Controllers/carsList/filterCarInService";
 
 import axios from "axios";
 import "../../mock-api/routes/users";
+
 // import "../../mock-api/routes/customerData";
 
 const CarsList = (props) => {
@@ -64,6 +66,26 @@ const CarsList = (props) => {
 
   let carInservice = carsDataApi.filter(filterCarInService);
   console.log(carInservice);
+
+  const changeStatusPickedUpReducer = (state, action) => {
+    switch (action.type) {
+      case "changeCarStatusOnPickedUp":
+        console.log("reducer in caritem");
+        console.log(action.id);
+    }
+  };
+
+  const [clientListInService, changeCarStatus] = useReducer(
+    changeStatusPickedUpReducer,
+    carInservice
+  );
+
+  //
+  //
+  //Przekazać do CarItem reducer.
+  //
+  //
+
   return (
     <Container className="justify-content-center ">
       <Row>
@@ -83,7 +105,8 @@ const CarsList = (props) => {
 
           <Col className="align-self-center" xs={8} lg={4}>
             <InputGroup.Append>
-              <Button variant="outline-secondary">
+              <Button variant="outline-secondary" id={1}>
+                {/* <Button variant="outline-secondary" id={1}> */}
                 SZUKAJ / DODAJ SAMOCHÓD
               </Button>
             </InputGroup.Append>
@@ -93,6 +116,7 @@ const CarsList = (props) => {
       <Row>
         <CarItem
           // carList={mainCarlist}
+          changeCarStatus={changeCarStatus}
           carList={carInservice}
           setSelectedCarFromList={props.setSelectedCarFromList}
         />

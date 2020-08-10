@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useReducer } from "react";
 import { theme } from "utils/theme";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -14,10 +14,6 @@ const InformationLabel = styled.p`
   font-weight: 700;
   color: ${({ colors }) => theme.colors.primaryDark};
 `;
-const ButtonItem = styled(Button)`
-  width: 110px;
-  height: 30px;
-`;
 
 const CarItem = (props) => {
   const [clientCarVisitData, setClientCarVisitData] = useState();
@@ -26,11 +22,26 @@ const CarItem = (props) => {
   let number = 0;
   let clientAndCarData = carList[0];
   console.log(carList);
-  // console.log(clients);
 
   function showId(e) {
     props.setSelectedCarFromList(e.target.id);
   }
+  //
+  // const changeStatusPickedUpReducer = (state, action) => {
+  //   switch (action.type) {
+  //     case "changeCarStatusOnPickedUp":
+  //       console.log("zadupca");
+  //       console.log("zadupca");
+  //       console.log(action.id);
+  //   }
+  // };
+
+  // let initiaState = 1;
+
+  // const [clientListInService, changeCarStatus] = useReducer(
+  //   changeStatusPickedUpReducer,
+  //   initiaState
+  // );
 
   function DispplayList(clients) {
     if (clients.length > 0) {
@@ -68,18 +79,11 @@ const CarItem = (props) => {
                       </Row>
                     </Col>
                   </Col>
-
-                  {/* /-------------------------------/ */}
-                  {/* /-------------------------------/ */}
-                  {/* /-------------------------------/ */}
                   <Col xs={12} sm={6} lg={4}>
                     <Col xs={12} lg={12}>
                       <Row>
                         <p className="mx-2">Imię:</p>
-                        <InformationLabel>
-                          {" "}
-                          {client.clientName}
-                        </InformationLabel>
+                        <InformationLabel>{client.clientName}</InformationLabel>
                       </Row>
                     </Col>
 
@@ -131,7 +135,23 @@ const CarItem = (props) => {
                       )} */}
                     </Col>
                     <Col xs={4} lg={2} className="align-self-center">
-                      <button type="button" class="btn btn-warning">
+                      <button
+                        type="button"
+                        class="btn btn-warning"
+                        id={client.id}
+                        onClick={() =>
+                          props.changeCarStatus({
+                            type: "changeCarStatusOnPickedUp",
+                            id: client.id,
+                          })
+                        }
+                        przygotowane
+                        pod
+                        obsługe
+                        reducer
+                        z
+                        carsList
+                      >
                         Odebrany
                       </button>
                     </Col>
