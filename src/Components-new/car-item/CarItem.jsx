@@ -143,6 +143,7 @@ const CarItem = (props) => {
                           props.changeCarStatus({
                             type: "changeCarStatusOnPickedUp",
                             id: client.id,
+                            value: client.id,
                           })
                         }
                         przygotowane

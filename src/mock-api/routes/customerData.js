@@ -10,3 +10,5 @@ const mock = new MockAdapter(axios, {
 mock
   .onGet("/api/customers-data")
   .reply(() => [200, coustomersData, { "Content-Typ": "application/js" }]);
+
+export default mock;
